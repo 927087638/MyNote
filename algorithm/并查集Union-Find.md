@@ -55,6 +55,54 @@ public:
 };
 ```
 
+```java
+class UF
+{
+    int n;
+    int[] parent;
+    int[] size;
+    int setCount;
+
+    public UF(int n)
+    {
+        this.n=n;
+        this.setCount=n;
+        this.parent=new int[n];
+        this.size=new int[n];
+
+        for(int i=0;i<=n-1;i++)
+        {
+            parent[i]=i;
+            size[i]=1;
+        }
+    }
+    public int find(int a)
+    {
+        return a==parent[a]? a:(parent[a]=find(parent[a]));
+    }
+    public boolean isConnceted(int a,int b)
+    {
+        return find(a)==find(b);
+    }
+    public boolean unite(int a,int b)
+    {
+        a=find(a);b=find(b);
+        if(a==b)  return false;
+
+        if(size[a]<size[b])
+        {
+            a=a+b;b=a-b;a=a-b;  //优雅地交换两个数
+        }
+        size[a]+=size[b];
+        parent[b]=a;
+        setCount--;
+    }
+
+}
+```
+
+
+
 ## 例题
 
 ### LeetCode 947  拿棋子
