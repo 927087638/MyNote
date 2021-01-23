@@ -3,7 +3,7 @@
 ## 基本程序
 ### 变量转换
 
-![image-20210123191451324](F:\Deaktop\Code\Git\MyNote\MyNote\Java\pic\Capture1.PNG)
+![image-20210123191451324](\pic\Capture1.PNG)
 
 
 
