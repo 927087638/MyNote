@@ -145,3 +145,8 @@ public:
 ### LeetCode 803  打砖块
 
 ### [LeetCode 959 斜杠划分](https://leetcode-cn.com/problems/regions-cut-by-slashes/solution/you-xie-gang-hua-fen-qu-yu-by-leetcode-67xb/)
+
+
+
+[<img src="https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png" width="300px" />](https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png)
+
