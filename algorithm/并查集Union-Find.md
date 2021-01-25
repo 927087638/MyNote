@@ -150,3 +150,53 @@ public:
 
 [<img src="https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png" width="300px" />](https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png)
 
+```c++
+class Solution {
+public:
+    int h;
+    int getIndex(int i,int j)
+    {
+        return (i*h+j);
+    }
+    int regionsBySlashes(vector<string>& grid)
+    {
+        h=grid.size();
+        UF *uf=new UF(4*h*h);
+
+        for(int i=0;i<=h-1;i++)
+        {
+            for(int j=0;j<=h-1;j++)
+            {
+                int index=getIndex(i,j);
+                if(grid[i][j]=='/')
+                {
+                    uf->Union(index*4+0,index*4+3);
+                    uf->Union(index*4+2,index*4+1);
+                }
+                else if(grid[i][j]=='\\')
+                {
+                    uf->Union(index*4+0,index*4+1);
+                    uf->Union(index*4+2,index*4+3);
+                }
+                else
+                {
+                    uf->Union(index*4+0,index*4+1);
+                    uf->Union(index*4+1,index*4+2);
+                    uf->Union(index*4+2,index*4+3);
+                }
+
+                if(i<=h-2)
+                    uf->Union(getIndex(i+1,j)*4,index*4+2);
+                if(j<=h-2)
+                    uf->Union(getIndex(i,j+1)*4+3,index*4+1);
+
+            }
+        }
+        return uf->getSet();
+    }
+};
+//leetcode submit region end(Prohibit modification and deletion)
+```
+
+
+
