@@ -148,7 +148,7 @@ public:
 
 
 
-[<img src="https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png" width="300px" />](https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png)
+<img src="https://pic.leetcode-cn.com/1611302894-vmBtyK-image.png" width="300px" />
 
 ```c++
 class Solution {
