@@ -12,10 +12,12 @@ class UF
 public:
     int *root;
     int count;
+    int setNumber;  //集合个数
 
     UF(int count)
     {
         this->count=count;
+        this->setNumber=count;
         root=new int[count];
         for(int i=0;i<=count-1;i++)
             root[i]=i;                  //初始化，独立成集合
@@ -31,14 +33,16 @@ public:
         return _root;
     }
 
-    void Union(int a,int b)		//合并
+    bool Union(int a,int b)		//合并
     {
         int rootA=findRoot(a);
         int rootB=findRoot(b);
         if(rootA==rootB)
-            return;
+            return false;
         else
             root[rootA]=rootB;
+            setNumber--;
+            return true;
     }
     
     int countSet()
@@ -136,6 +140,26 @@ public:
                     uf.Union(points.size()-1,i);
         }
         return stones.size()-uf.countSet();
+    }
+};
+```
+
+### [LeetCode 765 情侣牵手](https://leetcode-cn.com/problems/couples-holding-hands/)
+
+**「至少交换的次数 = 所有情侣的对数 - 并查集里连通分量的个数」**
+
+```c++
+class Solution {
+public:
+    int minSwapsCouples(vector<int>& row) 
+    {
+        int N=row.size()/2;
+        UF uf(N);
+        for(int i=0;i<N;i++)
+        {
+            uf.Union(row[2*i]/2,row[2*i+1]/2);
+        }
+        return N-uf.setNumber;
     }
 };
 ```
