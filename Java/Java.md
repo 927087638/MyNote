@@ -67,6 +67,17 @@ sb.reverse()
 
 ### ArrayList
 
+```java
+ArrayList<String> array = new ArrayList<string>();
+array.add("123");	//append
+array.add(0,"456");	//插入到对应下标
+
+array.remove("123");
+array.remove((int)index);	//若整形数组，只可下标删除
+
+array.get(index);
+```
+
 
 
 
